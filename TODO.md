@@ -1,0 +1,1 @@
+- lighthouse // loop through all html pages

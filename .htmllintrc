@@ -1,0 +1,18 @@
+{
+    "attr-bans": ["align", "background", "bgcolor", "border", "frameborder", "longdesc", "marginwidth", "marginheight", "scrolling", "style", "width", "onclick", "onload", "ondblclick"],
+    "attr-no-dup": true,
+    "attr-no-unsafe-char": true,
+    "attr-validate": true,
+    "attr-quote-style": "quoted",
+    "doctype-first": true,
+    "fig-req-figcaption": true,
+    "id-class-style": false,
+    "indent-style": "spaces",
+    "indent-width": 2,
+    "input-req-label": true,
+    "label-req-for": true,
+    "table-req-caption": true,
+    "tag-bans": ["nobr", "b", "i"],
+    "tag-name-lowercase": true,
+    "tag-name-match": true
+}
