@@ -6,17 +6,17 @@
   "directories": {
     "doc": "doc"
   },
-  "dependencies": {
-    "gulp": "^3.9.1",
-    "gulp-htmllint": "^0.0.15"
-  },
+  "dependencies": {},
   "devDependencies": {
-    "live-server": "^1.2.0"
+    "gulp": "^4.0.2",
+    "gulp-htmllint": "0.0.16",
+    "lighthouse": "^6.0.0",
+    "live-server": "^1.2.1"
   },
   "scripts": {
-  	"build": "gulp htmllint",
+    "build": "gulp htmllint",
     "audit": "live-server --no-browser . | lighthouse http://localhost:8080 --verbose --chrome-flags='--headless' --output-path=./reports/report.html --save-assets --config-path=./reports/config/lighthouse-config.js"
   },
-  "author": "",
+  "author": "Simon Borer",
   "license": "ISC"
 }
