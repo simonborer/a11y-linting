@@ -13,6 +13,7 @@
     "lighthouse": "^6.0.0",
     "live-server": "^1.2.1"
   },
+  "engines" : { "node" : ">=0.12" },
   "scripts": {
     "build": "gulp htmllint",
     "audit": "live-server --no-browser . | lighthouse http://localhost:8080 --verbose --chrome-flags='--headless' --output-path=./reports/report.html --save-assets --config-path=./reports/config/lighthouse-config.js"
