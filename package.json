@@ -6,27 +6,27 @@
     "type": "git",
     "url": "https://github.com/simonborer/a11y-linting"
   },
-  "main": "index.js",
   "directories": {
     "doc": "doc"
   },
-  "dependencies": {},
-  "devDependencies": {
-    "axe-webdriverjs": "^2.3.0",
-    "geckodriver": "^1.19.1",
-    "gulp": "^4.0.2",
-    "gulp-htmllint": "0.0.16",
-    "lighthouse": "^6.0.0",
-    "live-server": "^1.2.1",
-    "selenium-webdriver": "^4.0.0-alpha.7"
-  },
-  "engines": {
-    "node": ">=0.10"
-  },
   "scripts": {
-    "build": "gulp htmllint",
-    "audit": "live-server --no-browser . | lighthouse http://localhost:8080 --verbose --chrome-flags='--headless' --output-path=./reports/report.html --save-assets --config-path=./reports/config/lighthouse-config.js --view"
+    "test": "mocha",
+    "test-a11y-lighthouse": "mocha --grep 'Performance metrics'",
+    "test-a11y-axe": "mocha --grep 'Accessibility'",
+    "test-html": "mocha --grep 'HTML validation'",
+    "test-links": "mocha --grep 'Link validation'"
   },
   "author": "Simon Borer",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "axe-core": "^4.2.2",
+    "broken-link-checker": "^0.7.8",
+    "chai": "^4.3.4",
+    "chai-as-promised": "^7.1.1",
+    "express": "^4.17.1",
+    "html-validator": "^5.1.17",
+    "lighthouse": "^8.0.0",
+    "mocha": "^9.0.0",
+    "puppeteer": "^10.0.0"
+  }
 }
