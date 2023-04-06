@@ -1,14 +1,15 @@
-const express = require('express'),
-    app = express(),
-    validator = require('html-validator');
+import express from 'express';
+import validator from 'html-validator';
 
+const app = express();
 const port = 4323;
 
-module.exports = val = async () => {
+export async function validateHtml() {
     app.use(express.static('public'));
 
-    const server = app.listen(port, () => console.log(`VL Server listening on port: ${port}`));
-    const localFile = 'http://localhost:' + port;
+    const server = await app.listen(port);
+    console.log(`VL Server listening on port: ${port}`);
+    const localFile = `http://localhost:${port}`;
     const options = {
         url: localFile,
         isLocal: true,
@@ -16,11 +17,14 @@ module.exports = val = async () => {
     };
 
     const result = await validator(options);
-
-    const errArray = result.messages.filter(function(el) {
-        return el.type === 'error';
+    const htmlValidationErrors = {
+        list: result.messages.filter(el => (el.type === 'error')),
+        messages: []
+    };
+    htmlValidationErrors.list.forEach(err => {
+        htmlValidationErrors.messages.push(err.message);
     });
 
     await server.close();
-    return errArray;
+    return htmlValidationErrors;
 };
