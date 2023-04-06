@@ -22,13 +22,9 @@ export async function runAccessibilityAudit() {
     });
     const axeValidationErrors = {
         list: result.violations,
-        messages: []
+        messages: result.violations.map(el => el.description)
     };
-    axeValidationErrors.list.forEach(err => {
-        axeValidationErrors.messages.push(err.description);
-    });
-
-
+    
     await browser.close();
     await server.close();
 

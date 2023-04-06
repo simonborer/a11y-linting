@@ -19,11 +19,8 @@ export async function validateHtml() {
     const result = await validator(options);
     const htmlValidationErrors = {
         list: result.messages.filter(el => (el.type === 'error')),
-        messages: []
+        messages: result.messages.filter(el => el.type === 'error').map(el => el.message)
     };
-    htmlValidationErrors.list.forEach(err => {
-        htmlValidationErrors.messages.push(err.message);
-    });
 
     await server.close();
     return htmlValidationErrors;

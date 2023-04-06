@@ -12,7 +12,7 @@
   },
   "scripts": {
     "test": "mocha",
-    "test-a11y-axe": "mocha --grep 'Accessibility'",
+    "test-a11y": "mocha --grep 'Accessibility'",
     "test-html": "mocha --grep 'HTML validation'",
     "test-links": "mocha --grep 'Link validation'"
   },
